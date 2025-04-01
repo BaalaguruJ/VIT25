@@ -4,12 +4,12 @@ import Rover from './pages/rover'
 
 import { useState, useEffect } from 'react'
 import {io} from 'socket.io-client'
-import axios from 'axios'
+// import axios from 'axios'
 
 function App() {
 
 
-  const [id, setId] = useState(null)
+  const [ setId] = useState(null)
   
 useEffect(() => {
   const socket = io('http://localhost:3000')
