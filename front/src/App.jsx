@@ -9,32 +9,32 @@ import {io} from 'socket.io-client'
 function App() {
 
 
-  const [ setId] = useState(null)
+//   const [ setId] = useState(null)
   
-useEffect(() => {
-  const socket = io('http://localhost:3000')
+// useEffect(() => {
+//   const socket = io('http://localhost:3000')
 
-  socket.on('connect', () => {
-    setId(socket.id)
-  })
-  socket.on('getSession', async(id) => {
-    console.log(id)
-  })
-  socket.on('roverPosition', (data) => {
-    console.log(data)
-  })
+//   socket.on('connect', () => {
+//     setId(socket.id)
+//   })
+//   socket.on('getSession', async(id) => {
+//     console.log(id)
+//   })
+//   socket.on('roverPosition', (data) => {
+//     console.log(data)
+//   })
 
-  // Cleanup the socket connection on unmount
-  return () => {
-    socket.disconnect()
-  }
-}, [])
+//   // Cleanup the socket connection on unmount
+//   return () => {
+//     socket.disconnect()
+//   }
+// }, [])
 
   return (
     <BrowserRouter>
         <Routes>
           <Route index element={<Home/>}/>
-          <Route path='/rover' element={<Rover/>}/>
+          <Route path='/rover/:param' element={<Rover/>}/>
         </Routes>
     </BrowserRouter>
   )
