@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Rover.css';
+import NavBar from '../components/NavBar';
 
 function Rover() {
   const [roverData, setRoverData] = useState({
@@ -37,28 +38,30 @@ function Rover() {
   }, []);
 
   return (
-    <div className="dashboard">
-        <NavBar/>
-      <div className="rover-display">
+   
+    <>
+     <NavBar/>
+    <div className="dashboard-conatainer">
+    <div className="rover-display-fixed">
         <img 
-          src="/bot-removebg-preview.png" 
-          alt="Agricultural Rover" 
-          className="rover-image" 
+            src="/bot-removebg-preview.png" 
+            alt="Agricultural Rover" 
+            className="rover-image" 
         />
         <div className="rover-status">
-          <h2>Rover X-247</h2>
-          <p>
+            <h2>Rover X-247</h2>
+            <p>
             <span className={`status-indicator ${roverData.status}`}></span>
             Status: {roverData.status.toUpperCase()}
-          </p>
-          <div className="battery-meter">
+            </p>
+            <div className="battery-meter">
             <div className="battery-level" style={{ width: `${roverData.battery}%` }}></div>
             <span>{roverData.battery}%</span>
-          </div>
-          <p>Last Update: {new Date(roverData.lastUpdate).toLocaleTimeString()}</p>
+            </div>
+            <p>Last Update: {new Date(roverData.lastUpdate).toLocaleTimeString()}</p>
         </div>
-      </div>
-
+        </div>
+<div className='content-scrollable'>
       <div className="rover-details">
         <h1>Crop & Soil Monitoring Dashboard</h1>
         
@@ -94,7 +97,9 @@ function Rover() {
           </div>
         </div>
       </div>
+      </div>
     </div>
+    </>
   );
 }
 
