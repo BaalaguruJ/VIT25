@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './Home.css';
-import './LEAVES.JS'; // Import the leaf animation script
+import './home.css';
+import './leaves.js'; // Import the leaf animation script
 
 function Home() {
   const [showHomePage, setShowHomePage] = useState(false);
