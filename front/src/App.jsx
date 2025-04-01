@@ -1,6 +1,7 @@
 import{BrowserRouter, Route, Routes} from 'react-router-dom'
 import Home from './pages/home'
 import Rover from './pages/rover'
+
 import { useState, useEffect } from 'react'
 import {io} from 'socket.io-client'
 import axios from 'axios'
@@ -41,5 +42,4 @@ useEffect(() => {
     </>
   )
 }
-
 export default App
