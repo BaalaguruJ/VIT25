@@ -4,7 +4,7 @@ import Rover from './pages/rover'
 
 function App() {
 
-  return (
+return (
     <BrowserRouter>
         <Routes>
           <Route index element={<Home/>}/>
@@ -13,5 +13,4 @@ function App() {
     </BrowserRouter>
   )
 }
-
 export default App
