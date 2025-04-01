@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './Rover.css';
-import NavBar from '../components/NavBar';
+import './rover.css';
+import NavBar from '../components/navbar';
 
 function Rover() {
   const [roverData, setRoverData] = useState({
