@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import NavBar from '../components/navbar';
 import './home.css';
-import './leaves.js'; // Import the leaf animation script
+import './leaves.js';
+
 
 function Home() {
   const [showHomePage, setShowHomePage] = useState(false);
@@ -20,10 +22,14 @@ function Home() {
   };
 
   return (
+    <>
+   
     <div className="Home">
+     
       {showWelcome && <div className="welcome-animation">Welcome to Cropcare</div>}
       {showHomePage && (
         <>
+         <NavBar/>
           <div className="title">Cropcare</div>
           <div className="box-container">
             <div className="box" onClick={() => handleBoxClick('rover1')}>Rover 1</div>
@@ -35,6 +41,7 @@ function Home() {
         </>
       )}
     </div>
+    </>
   );
 }
 
