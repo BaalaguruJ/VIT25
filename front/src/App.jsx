@@ -31,15 +31,12 @@ useEffect(() => {
 }, [])
 
   return (
-    // <BrowserRouter>
-    //     <Routes>
-    //       <Route index element={<Home/>}/>
-    //       <Route path='/rover' element={<Rover/>}/>
-    //     </Routes>
-    // </BrowserRouter>
-    <>
-    {id && <p>{id}</p>}
-    </>
+    <BrowserRouter>
+        <Routes>
+          <Route index element={<Home/>}/>
+          <Route path='/rover' element={<Rover/>}/>
+        </Routes>
+    </BrowserRouter>
   )
 }
 export default App
