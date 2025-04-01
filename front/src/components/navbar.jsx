@@ -4,15 +4,18 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import "bootstrap/dist/css/bootstrap.min.css";
-export default function Navigation(){
+import '../components/navbar.css';
+
+
+export default function Navigation() {
   return (
-    <Navbar expand="lg" className="bg-primary navbar-dark sticky-top">
+    <Navbar expand="lg" className="navbar-dark sticky-top" style={{ backgroundColor: "#4CAF50" }}> {/* Medium green background */}
       <Container fluid className="px-3 px-lg-5"> {/* Improved padding for different screens */}
         {/* Brand Name - Larger on desktop */}
         <Navbar.Brand 
           as={Link} 
           to="/" 
-          className="fw-bold text-white fs-4 fs-lg-3" // Responsive font size
+          className="fw-bold text-white fs-4 fs-lg-3 nav-text-hover"
         >
           Cropcare
         </Navbar.Brand>
@@ -25,7 +28,7 @@ export default function Navigation(){
             <Nav.Link 
               as={Link} 
               to="/" 
-              className="text-white fw-semibold px-2 px-lg-3 py-3 py-lg-1" // Better padding
+              className="text-white fw-semibold px-2 px-lg-3 py-3 py-lg-1 nav-text-hover"
               activeClassName="active"
             >
               Home
@@ -34,7 +37,7 @@ export default function Navigation(){
             <Nav.Link 
               as={Link} 
               to="/rover" 
-              className="text-white fw-semibold px-2 px-lg-3 py-3 py-lg-1"
+              className="text-white fw-semibold px-2 px-lg-3 py-3 py-lg-1 nav-text-hover"
               activeClassName="active"
             >
               Rover
@@ -50,21 +53,21 @@ export default function Navigation(){
               <NavDropdown.Item 
                 as={Link} 
                 to="/features" 
-                className="py-2 px-3"
+                className="py-2 px-3 nav-text-hover"
               >
                 Features
               </NavDropdown.Item>
               <NavDropdown.Item 
                 as={Link} 
                 to="/team" 
-                className="py-2 px-3"
+                className="py-2 px-3 nav-text-hover"
               >
                 Our Team
               </NavDropdown.Item>
               <NavDropdown.Item 
                 as={Link} 
                 to="/contact" 
-                className="py-2 px-3"
+                className="py-2 px-3 nav-text-hover"
               >
                 Contact Us
               </NavDropdown.Item>
