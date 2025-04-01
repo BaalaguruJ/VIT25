@@ -1,10 +1,8 @@
 import{BrowserRouter, Route, Routes} from 'react-router-dom'
 import Home from './pages/home'
 import Rover from './pages/rover'
-
 function App() {
-
-  return (
+return (
     <BrowserRouter>
         <Routes>
           <Route index element={<Home/>}/>
@@ -13,5 +11,4 @@ function App() {
     </BrowserRouter>
   )
 }
-
 export default App
