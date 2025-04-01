@@ -1,0 +1,59 @@
+/* Home.css */
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .image-container {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fadeIn 3s ease-in-out forwards; /* 3s to fade in the image */
+  }
+  
+  .image-container img {
+    width: 200px; /* Adjust size as per requirement */
+    height: auto;
+  }
+  
+  .title {
+    font-size: 3rem;
+    color: #4caf50;
+    font-weight: bold;
+    animation: fadeIn 2s ease-in-out 1s forwards;
+    text-align: center;
+  }
+  
+  .box-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    padding: 20px;
+  }
+  
+  .box {
+    width: 150px;
+    height: 150px;
+    background-color: #81c784;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .box:hover {
+    transform: scale(1.1);
+    background-color: #66bb6a;
+  }
+  
