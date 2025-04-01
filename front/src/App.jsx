@@ -36,7 +36,7 @@ function App() {
         <Routes>
           <Route index element={<Home/>}/>
           <Route path='/rover/:param' element={<Rover/>}/>
-          <Route path='/rover-controls' element={<RoverControl/>}/>
+          <Route path='/rover-controls/:param' element={<RoverControl/>}/>
         </Routes>
     </BrowserRouter>
   )

@@ -17,12 +17,17 @@ const getSessionId = require('./router/getSession')
 app.use(cors())
 
 io.on('connection', socket => {
-  console.log('Socket connected with ID:', socket.id)
+  // console.log('Socket connected with ID:', socket.id)
   var roId;
-  socket.on('roNo', id => {
+  socket.on('roNo', async id => {
     roId = id;
-    console.log(roId)
     getSessionId(socket, roId)
+  })
+
+  socket.on('operate',async (dir, id, sessionID) => {
+    const direction = ['forward', 'backward', 'left', 'right']
+    const op = await axios.post(`https://fleetbots-production.up.railway.app/api/rover/Rover-${id}/move?session_id=${sessionID}&direction=${direction[dir-1]}`)
+    socket.emit('direction', op.data.message)
   })
 })
 
