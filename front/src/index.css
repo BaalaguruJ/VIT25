@@ -1,1 +1,5 @@
 @import "tailwindcss";
+@font-face {
+    font-family: 'Winky Sans';
+    src: url('https://fonts.googleapis.com/css2?family=Winky+Sans&display=swap');
+  }
