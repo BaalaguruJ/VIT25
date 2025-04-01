@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './home.css'; // Import the leaf animation script
-
+import './home.css'; 
+import navbar from '../components/navbar'
 function Home() {
   const [showHomePage, setShowHomePage] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);

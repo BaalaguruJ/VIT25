@@ -1,50 +1,41 @@
-@keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
+@keyframes fadeIn { 
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
   
-  @keyframes welcomeAnimation {
-    0% {
-      opacity: 0;
-      transform: scale(0.8);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1.1);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
+@keyframes welcomeAnimation {
+    0% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
   
-  @font-face {
+@font-face {
     font-family: 'Winky Sans';
     src: url('https://fonts.googleapis.com/css2?family=Winky+Sans&display=swap');
-  }
+}
   
-  body, html {
-    height: 100%;
+body, html {
     margin: 0;
+    font-size: clamp(14px,4vw,18px);
     font-family: 'Winky Sans', sans-serif;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Changed */
+    min-height: 100vh; /* Ensures full viewport height */
     flex-direction: column;
     background: linear-gradient(to right, #e6ffe6, #ccffcc);
-  }
+    overflow-x: hidden;  /* Prevents horizontal scrolling */
+    width: 100%;
+}
   
-  .Home {
+.Home {
     text-align: center;
-  }
-  
-  /* Welcome Message Animation */
-  .welcome-animation {
-    font-size: 3.5rem;
+    width: 100%;
+}
+
+/* Welcome Message Animation */
+.welcome-animation {
+    font-size: 3.5vw;  /* Uses viewport width for responsiveness */
     font-weight: bold;
     color: transparent;
     background-image: linear-gradient(to right, #154417, #4caf50);
@@ -52,101 +43,82 @@
     background-clip: text;
     animation: welcomeAnimation 2.5s ease-in-out forwards;
     opacity: 0;
-  }
+}
   
-  /* Fade-in effect for the image */
-  .image-container {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: fadeIn 3s ease-in-out forwards;
-  }
-  
-  .image-container img {
-    width: 250px;
-    height: auto;
-  }
-  
-  /* Title Styling */
-  .title {
-    font-size: 3.5rem;
+/* Title Styling */
+.title {
+    font-size: 4vw;  /* Scales based on screen size */
     color: #4caf50;
     font-weight: bold;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-  }
+    opacity: 1;
+}
   
-  /* Box Container */
-  .box-container {
+/* Box Container */
+.box-container {
     display: flex;
-    justify-content: space-around;
-    margin-top: 50px;
-    padding: 20px;
-    flex-wrap: wrap;
     justify-content: center;
-  }
-  
-  /* Stylish Box Effects */
-  .box {
-    width: 220px;
-    height: 220px;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+    overflow-wrap:break-word;
+    white-space:normal;
+    margin-top: 2vh;
+    width: 90%; /* Ensures responsiveness */
+    max-width: 1200px;  /* Prevents stretching on large screens */
+}
+
+/* Stylish Box Effects */
+.box {
+    width: 18vw;  /* Uses viewport width instead of fixed pixels */
+    height: 18vw;
+    max-width: 200px;  /* Ensures a max size */
+    max-height: 200px;
+    min-width: 150px;  /* Prevents shrinking too much */
+    min-height: 150px;
+    
     background-color: #154417;
     border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 2rem;
+    font-size: 1.8vw;  /* Scales dynamically */
     font-weight: bold;    
     cursor: pointer;
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease-in-out;
-    margin: 15px;
+    margin: 1vw;
     border: 3px solid #4caf50;
-  }
-  
-  /* Glow effect on hover */
-  .box:hover {
+}
+
+/* Glow effect on hover */
+.box:hover {
     transform: scale(1.1);
     background-color: #037a09;
     color: #053910;
     box-shadow: 0px 8px 16px rgba(0, 255, 100, 0.5);
-  }
-  
-  /* Responsive Design for Mobile */
-  @media screen and (max-width: 768px) {
+}
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 5vw;
+    }
     .box-container {
-      flex-direction: column;
-      align-items: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
     }
   
     .box {
-      width: 180px;
-      height: 180px;
-      font-size: 1.8rem;
+        width: 30vw;  /* Adjusts for smaller screens */
+        height: 30vw;
+        font-size: clamp(14px,4vw,18px);
     }
-  }
-  @keyframes fall {
-    0% {
-      transform: translateY(-10vh) rotate(0deg);
-      opacity: 1;
+
+    .welcome-animation {
+        font-size: clamp(14px,4vw,18px);
     }
-    100% {
-      transform: translateY(100vh) rotate(360deg);
-      opacity: 0;
-    }
-  }
-  
-  .falling-leaf {
-    position: absolute;
-    top: -10vh; /* Start slightly above viewport */
-    width: 40px;
-    height: 40px;
-    background-image: url("leaf.png"); /* Replace with actual leaf image */
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0;
-    animation: fall linear infinite;
-  }
-  
+}
+
+
