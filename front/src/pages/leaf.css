@@ -1,0 +1,24 @@
+@keyframes leafAnimation {
+    0% {
+      transform: rotate(0deg) translateY(0);
+    }
+    50% {
+      transform: rotate(45deg) translateY(-20px);
+    }
+    100% {
+      transform: rotate(0deg) translateY(0);
+    }
+  }
+  
+  .leaf {
+    width: 40px;
+    height: 40px;
+    background-color: green;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    animation: leafAnimation 4s ease-in-out infinite;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform-origin: center center;
+  }
+  
