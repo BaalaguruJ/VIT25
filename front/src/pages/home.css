@@ -74,7 +74,6 @@
     color: #4caf50;
     font-weight: bold;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    animation: welcomeAnimation 1.5s ease-in-out 1s forwards;
     opacity: 0;
   }
   
