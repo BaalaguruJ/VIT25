@@ -41,14 +41,14 @@ function Rover() {
    
     <>
      <NavBar/>
-    <div className="dashboard-conatainer">
-    <div className="rover-display-fixed">
-        <img 
-            src="/bot-removebg-preview.png" 
-            alt="Agricultural Rover" 
-            className="rover-image" 
-        />
-        <div className="rover-status">
+    <div className="dashboard-container">
+        <div className="rover-display-fixed">
+            <img 
+                src="/bot-removebg-preview.png" 
+                alt="Agricultural Rover" 
+                className="rover-image" 
+            />
+            <div className="rover-status">
             <h2>Rover X-247</h2>
             <p>
             <span className={`status-indicator ${roverData.status}`}></span>

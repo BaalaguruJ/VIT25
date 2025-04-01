@@ -1,3 +1,4 @@
+/* Base Styles (Mobile First) */
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,112 +7,117 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #f5f5f5;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
   }
   
-  /* Main container */
   .dashboard-container {
     display: flex;
-    flex-direction: column; /* Stack vertically on mobile */
+    flex-direction: column;
     min-height: 100vh;
   }
   
-  /* Fixed left panel (rover display) */
+  /* Rover Display Panel */
   .rover-display-fixed {
-    width: 100%; /* Full width on mobile */
+    width: 100%;
     background-color: #2c3e50;
-    padding: 20px;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: white;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: relative; /* Static on mobile */
+    position: relative;
     z-index: 10;
     box-sizing: border-box;
+    order: 1; /* Display first on mobile */
   }
   
-  /* Scrollable right content */
+  .rover-image {
+    width: 60%;
+    max-width: 250px;
+    min-width: 180px;
+    border-radius: 10px;
+    border: 3px solid #3498db;
+    margin-bottom: 1rem;
+    object-fit: contain;
+  }
+  
+  .rover-status {
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Content Area */
   .content-scrollable {
-    width: 100%; /* Full width on mobile */
+    width: 100%;
     overflow-y: auto;
     background-color: white;
     box-sizing: border-box;
+    order: 2; /* Display second on mobile */
   }
   
-  /* Content container */
   .rover-details {
-    padding: 20px; /* Reduced padding on mobile */
+    padding: 1.5rem;
     min-height: 100vh;
     box-sizing: border-box;
   }
   
-  /* Rover image adjustments */
-  .rover-image {
-    width: 60%; /* Smaller on mobile */
-    max-width: 250px;
-    border-radius: 10px;
-    border: 3px solid #3498db;
-    margin-bottom: 15px;
+  /* Dashboard Components */
+  .dashboard-section {
+    margin-bottom: 2rem;
   }
   
-  /* Metrics grid adjustments */
   .metrics-grid {
     display: grid;
-    grid-template-columns: 1fr; /* Single column on mobile */
-    gap: 15px;
-    margin-top: 15px;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
   }
   
-  /* Tablet and larger screens */
-  @media (min-width: 768px) {
-    .dashboard-container {
-      flex-direction: row; /* Side by side on larger screens */
-      height: 100vh;
-      overflow: hidden;
-    }
-  
-    .rover-display-fixed {
-      width: 30%;
-      min-width: 300px;
-      max-width: 400px;
-      height: 100vh;
-      position: fixed;
-      left: 0;
-      top: 0;
-    }
-  
-    .content-scrollable {
-      width: 70%;
-      margin-left: 30%;
-      height: 100vh;
-    }
-  
-    .rover-details {
-      padding: 30px;
-    }
-  
-    .metrics-grid {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
+  .metric-card {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
   }
   
-  /* Desktop/laptop screens */
-  @media (min-width: 1024px) {
-    .metrics-grid {
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-    }
+  .metric-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   }
   
-  /* Status indicator */
+  /* Typography */
+  h1, h2, h3 {
+    color: #2c3e50;
+    margin-top: 0;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Status Indicator */
   .status-indicator {
     display: inline-block;
-    width: 15px;
-    height: 15px;
+    width: 0.75rem;
+    height: 0.75rem;
     border-radius: 50%;
-    margin-right: 8px;
+    margin-right: 0.5rem;
     animation: pulse 2s infinite;
   }
   
@@ -134,20 +140,22 @@ body {
     100% { opacity: 1; }
   }
   
-  /* Battery meter */
+  /* Battery Meter */
   .battery-meter {
     width: 80%;
-    height: 20px;
+    height: 1.25rem;
     border: 1px solid #ccc;
     border-radius: 3px;
-    margin: 10px auto;
+    margin: 0.75rem auto;
     position: relative;
+    background-color: rgba(255,255,255,0.1);
   }
   
   .battery-level {
     height: 100%;
     background-color: #2ecc71;
     border-radius: 2px;
+    transition: width 0.5s ease;
   }
   
   .battery-meter span {
@@ -156,76 +164,16 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 12px;
+    font-size: 0.75rem;
     text-shadow: 0 0 2px #000;
   }
   
-  /* Dashboard sections */
-  .dashboard-section {
-    margin-bottom: 30px;
-  }
-  
-  h1, h2, h3 {
-    color: #2c3e50;
-  }
-  
-  h1 {
-    margin-top: 0;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-    font-size: 1.5rem; /* Smaller on mobile */
-  }
-  
-  @media (min-width: 768px) {
-    h1 {
-      font-size: 2rem; /* Larger on desktop */
-    }
-  }
-  
-  /* Metric cards */
-  .metric-card {
-    background: #f9f9f9;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
-  }
-  
-  .metric-card:hover {
-    transform: translateY(-3px);
-  }
-  
-  .metric-icon {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .metric-value {
-    font-size: 1.5rem; /* Smaller on mobile */
-    font-weight: bold;
-    margin: 10px 0 5px;
-    color: #3498db;
-  }
-  
-  @media (min-width: 768px) {
-    .metric-value {
-      font-size: 2rem; /* Larger on desktop */
-    }
-  }
-  
-  /* Location data */
+  /* Location Data */
   .location-data {
     display: flex;
-    flex-direction: column; /* Stack on mobile */
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-  
-  @media (min-width: 768px) {
-    .location-data {
-      flex-direction: row; /* Side by side on desktop */
-      gap: 20px;
-    }
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
   }
   
   .map-placeholder {
@@ -236,4 +184,117 @@ body {
     justify-content: center;
     border-radius: 8px;
     color: #777;
+    margin-top: 1rem;
+  }
+  
+  /* Tablet (768px and up) */
+  @media (min-width: 768px) {
+    .dashboard-container {
+      flex-direction: row;
+      height: 100vh;
+      overflow: hidden;
+    }
+  
+    .rover-display-fixed {
+      width: 30%;
+      min-width: 300px;
+      max-width: 350px;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      order: 1;
+      padding: 2rem;
+    }
+  
+    .content-scrollable {
+      width: 70%;
+      margin-left: 30%;
+      height: 100vh;
+      order: 2;
+    }
+  
+    .rover-details {
+      padding: 2rem;
+    }
+  
+    .metrics-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .location-data {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+  }
+  
+  /* Desktop (1024px and up) */
+  @media (min-width: 1024px) {
+    .metrics-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+  
+    .rover-details {
+      padding: 2.5rem;
+    }
+  
+    .metric-card {
+      padding: 1.5rem;
+    }
+  
+    .map-placeholder {
+      height: 250px;
+    }
+  }
+  
+  /* Large Desktop (1440px and up) */
+  @media (min-width: 1440px) {
+    .rover-display-fixed {
+      max-width: 400px;
+    }
+  
+    .metrics-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  
+    .rover-details {
+      padding: 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+  }
+  
+  /* Utility Classes */
+  .metric-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    display: inline-block;
+  }
+  
+  .metric-value {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    color: #3498db;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Animation for data updates */
+  @keyframes highlight {
+    0% { background-color: rgba(52, 152, 219, 0.1); }
+    100% { background-color: transparent; }
+  }
+  
+  .updated {
+    animation: highlight 1.5s ease-out;
   }
