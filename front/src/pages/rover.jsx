@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './Rover.css';
-import NavBar from '../components/NavBar';
+import './rover.css';
+import NavBar from '../components/navbar';
+import DummyMap from '../components/DummyMap';
 
 function Rover() {
   const [roverData, setRoverData] = useState({
@@ -93,7 +94,7 @@ function Rover() {
             <p>Heading: {roverData.location.heading}</p>
           </div>
           <div className="map-placeholder">
-            [Map Visualization Would Appear Here]
+            <DummyMap/>
           </div>
         </div>
       </div>
