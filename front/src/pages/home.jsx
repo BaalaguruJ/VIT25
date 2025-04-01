@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Home.css';
+import navbar from '../components/navbar';
 import './LEAVES.JS'; // Import the leaf animation script
 
 function Home() {
@@ -22,6 +23,7 @@ function Home() {
   return (
     <div className="Home">
       {showWelcome && <div className="welcome-animation">Welcome to Cropcare</div>}
+      <navbar/>
       {showHomePage && (
         <>
           <div className="title">Cropcare</div>
