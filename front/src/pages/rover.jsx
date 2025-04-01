@@ -3,7 +3,7 @@ import './rover.css';
 import NavBar from '../components/navbar';
 import DummyMap from '../components/DummyMap';
 import {io} from 'socket.io-client'
-import { useParams, useSearchParams } from 'react-router-dom';
+import {useNavigate, useParams, useSearchParams } from 'react-router-dom';
 function Rover() {
     const [roverData, setRoverData] = useState({
       status: 'active',
@@ -24,7 +24,7 @@ function Rover() {
       },
       lastUpdate: new Date().toISOString()
     });
-    
+const navigate = useNavigate();
   const {param} = useParams()
   const[batteryLevel, setBatteryLevel] = useState(0);
   const[sensorData, setSensorData] = useState(null)
@@ -100,6 +100,12 @@ function Rover() {
             <span>{batteryLevel}%</span>
             </div>
             <p>Last Update: {new Date(sensorData && sensorData.timestamp).toLocaleTimeString()}</p>
+            <button 
+                className="rover-controls-button"
+                onClick={() => navigate('/rover-controls')}
+              >
+              Open Rover Controls
+            </button>
         </div>
         </div>
         <div className='content-scrollable'>
