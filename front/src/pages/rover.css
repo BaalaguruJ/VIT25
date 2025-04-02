@@ -400,3 +400,79 @@ h3 {
   height: 100vh;
 }
 
+/* Critical Alert Styles */
+.critical-alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #ff4444;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.alert-content h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.alert-content p {
+  margin: 5px 0;
+}
+
+/* Alert Popup Styles */
+.alert-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 350px; /* Increased size */
+  padding: 20px; /* More padding */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+  font-size: 1.1rem; /* Larger font */
+  line-height: 1.5;
+}
+
+.alert-popup.critical {
+  background-color: #ff4444;
+  color: white;
+  border-left: 6px solid #cc0000;
+}
+
+.alert-popup.warning {
+  background-color: #ffbb33;
+  color: #333;
+  border-left: 6px solid #ff8800;
+}
+
+.alert-content h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.4rem; /* Larger heading */
+  font-weight: bold;
+}
+
+.alert-content p {
+  margin: 8px 0;
+  font-size: 1.1rem;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Stack alerts if both appear */
+.alert-popup.warning {
+  top: calc(20px + 120px); /* Position below critical alert */
+}

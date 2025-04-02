@@ -41,5 +41,26 @@
         "features": "Features",
         "ourTeam": "Our Team",
         "contactUs": "Contact Us"
-      }
+      },
+
+      "critical": {
+        "battery" : "Battery level is critical",
+        "bat-decs" : "Rover is in low battery mode now, Recharge immediately",
+        "Temperature" : "Temperature is critical",
+        "Tem-desc" : "Irrigation is required immediately",
+        "soil" : "Soil moisture is critical",
+        "soil-desc" :"Irrigation is required immediately",
+        "soil-ph":"Soil pH is critical"
+      },
+      "moderate": {
+        "battery" : "Battery level is moderate",
+        "bat-decs" : "Rover is in low power mode, recharge after 15 minutes",
+        "Temperature" : "Temperature is moderate",
+        "Tem-desc" : "Attention required immediately",
+        "soil" : "Soil moisture is moderate",
+        "soil-desc" :"Use watering can",
+        "soil-ph" : "Soil pH is moderate"
+      },
+      "warn" : "Warning",
+      "crit" : "Critical"
     }

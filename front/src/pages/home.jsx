@@ -3,6 +3,7 @@ import './home.css';
 import NavBar from '../components/navbar';
 import { useNavigate } from 'react-router-dom';
 import botGif from './white-bot-unscreen.gif'; // Ensure the path is correct
+import socket from '../socket';
 
 function Home() {
   const [showGif, setShowGif] = useState(true);
@@ -10,20 +11,20 @@ function Home() {
   const [showSlogan, setShowSlogan] = useState(false);
   const [showHomePage, setShowHomePage] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setShowWelcome(true); // Show welcome text
-      setTimeout(() => {
-        setShowSlogan(true); // Show slogan
-        setTimeout(() => {
-          setShowGif(false);
-          setShowWelcome(false);
-          setShowSlogan(false);
-          setShowHomePage(true); // Show main page
-        }, 2000); // Wait 2 seconds before going to main content
-      }, 2000);
-    }, 2000); // 2 seconds after GIF appears, text appears
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setShowWelcome(true); // Show welcome text
+  //     setTimeout(() => {
+  //       setShowSlogan(true); // Show slogan
+  //       setTimeout(() => {
+  //         setShowGif(false);
+  //         setShowWelcome(false);
+  //         setShowSlogan(false);
+  //         setShowHomePage(true); // Show main page
+  //       }, 2000); // Wait 2 seconds before going to main content
+  //     }, 2000);
+  //   }, 2000); // 2 seconds after GIF appears, text appears
+  // }, []);
 
   const navigate = useNavigate();
 
@@ -33,15 +34,15 @@ function Home() {
 
   return (
     <div className="Home">
-      {showGif && (
+      {/* {showGif && (
         <div className="welcome-container">
           <img src={botGif} alt="Loading..." className="full-width-gif" />
           {showWelcome && <div className="welcome-animation">Welcome to Cropcare</div>}
           {showSlogan && <div className="slogan-animation">Helping crops live their best life</div>}
         </div>
-      )}
+      )} */}
 
-      {showHomePage && (
+      {/* {showHomePage && ( */}
         <>
           <NavBar />
           <div className="title">Cropcare</div>
@@ -53,7 +54,7 @@ function Home() {
             ))}
           </div>
         </>
-      )}
+      {/* )} */}
     </div>
   );
 }

@@ -3,12 +3,14 @@ import { initReactI18next } from 'react-i18next';
 import Backend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
+const savedLanguage = localStorage.getItem('i18nextLng') || 'en';
+
 i18n
   .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    lng: 'en',
+    lng: savedLanguage, // Use saved language or default to 'en'
     fallbackLng: 'en',
     supportedLngs: ['en', 'ta'],
     debug: false,
@@ -19,8 +21,8 @@ i18n
       loadPath: '/locales/{{lng}}/translation.json',
     },
     detection: {
-      order: ['cookie', 'localStorage', 'navigator'],
-      caches: ['cookie', 'localStorage']
+      order: ['localStorage', 'cookie', 'navigator'],
+      caches: ['localStorage', 'cookie'], // Ensure persistence
     }
   });
 
