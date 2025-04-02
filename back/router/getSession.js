@@ -5,7 +5,7 @@ const getSessionId = async (socket, roverNo) => {
         try {
             const sessionRes = await axios.post('https://fleetbots-production.up.railway.app/api/session/start')
             const sessionId = sessionRes.data.session_id 
-            // console.log('Session ID:', sessionId)
+            console.log('Session ID:', sessionId)
             socket.emit('getSession', sessionId) 
 
             const roverStatus = await axios.get(`https://fleetbots-production.up.railway.app/api/rover/Rover-${roverNo}/status?session_id=${sessionId}`)
@@ -24,7 +24,7 @@ const getSessionId = async (socket, roverNo) => {
             // console.log(batteryLevel.data)
             socket.emit('batteryLevel', batteryLevel.data)
 
-
+            return sessionId
         } catch (err) {
             console.error('Error:', err.message)
         }

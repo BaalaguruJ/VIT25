@@ -7,6 +7,7 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import '../i18n';
 import LanguageSwitcher from '../components/LanguageSwitcher';
+import socket from '../socket';
 function Rover() {
   const [roverData, setRoverData] = useState({
     status: 'active',
@@ -69,6 +70,14 @@ function Rover() {
   }
   const [id, setId] = useState(null)
   useEffect(() => {
+    socket.connect();
+    socket.emit('roNo', param);
+  
+    const handleSession = (id) => {
+      console.log(id);
+      localStorage.setItem('sessionID', id);
+    };
+  
     // const interval = setInterval(() => {
     //   setRoverData(prev => ({
     //     ...prev,
@@ -217,4 +226,4 @@ function MetricCard({ title, value, icon, status = 'neutral' }) {
   );
 }
 
-export default Rover;
+export default Rover

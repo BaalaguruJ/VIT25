@@ -1,73 +1,51 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './RoverControls.css';
+import socket from '../socket';
+import { useParams } from 'react-router-dom';
 
 function RoverControls() {
-  const [movement, setMovement] = useState('');
+  const [movement, setMovement] = useState([]);
+  const { param } = useParams();
+  const sessionId = localStorage.getItem('sessionID');
+
+  useEffect(() => {
+    socket.connect();
+
+    socket.on('direction', (message) => {
+      setMovement((prev) => [...prev, message]);
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
 
   const handleMovement = (direction) => {
-    setMovement(direction);
     console.log(`Moving ${direction}`);
+    socket.emit('operate', direction, param, sessionId);
   };
 
   const handleStop = () => {
-    setMovement('');
+    setMovement([]);
     console.log('Stopping movement');
   };
 
   return (
-    <div className="rover-controls">
-      <h2>Rover Controls</h2>
-      <div className="control-grid">
-        <button 
-          className={`control-btn forward ${movement === 'forward' ? 'active' : ''}`}
-          onMouseDown={() => handleMovement('forward')}
-          onMouseUp={handleStop}
-          onTouchStart={() => handleMovement('forward')}
-          onTouchEnd={handleStop}
-        >
-          ↑
-        </button>
-
-        <button 
-          className={`control-btn left ${movement === 'left' ? 'active' : ''}`}
-          onMouseDown={() => handleMovement('left')}
-          onMouseUp={handleStop}
-          onTouchStart={() => handleMovement('left')}
-          onTouchEnd={handleStop}
-        >
-          ←
-        </button>
-
-        <button 
-          className="control-btn stop"
-          onClick={handleStop}
-        >
-          ●
-        </button>
-
-        <button 
-          className={`control-btn right ${movement === 'right' ? 'active' : ''}`}
-          onMouseDown={() => handleMovement('right')}
-          onMouseUp={handleStop}
-          onTouchStart={() => handleMovement('right')}
-          onTouchEnd={handleStop}
-        >
-          →
-        </button>
-
-        <button 
-          className={`control-btn backward ${movement === 'backward' ? 'active' : ''}`}
-          onMouseDown={() => handleMovement('backward')}
-          onMouseUp={handleStop}
-          onTouchStart={() => handleMovement('backward')}
-          onTouchEnd={handleStop}
-        >
-          ↓
-        </button>
+    <div className='flex flex-col gap-12 justify-center items-center m-4'>
+      <div className="rover-controls">
+        <h2>Rover Controls</h2>
+        <div className="control-grid">
+          <button className="control-btn forward" onClick={() => handleMovement(1)}>↑</button>
+          <button className="control-btn left" onClick={() => handleMovement(3)}>←</button>
+          <button className="control-btn stop" onClick={handleStop}>●</button>
+          <button className="control-btn right" onClick={() => handleMovement(4)}>→</button>
+          <button className="control-btn backward" onClick={() => handleMovement(2)}>↓</button>
+        </div>
       </div>
-      
-      <div className="status">
-        Current Command: {movement || 'Stopped'}
+      <div className='h-[400px] w-[260px] overflow-auto bg-white p-2 rounded-2xl'>
+        {movement.map((item, index) => (
+          <div key={index}>{item}</div>
+        ))}
       </div>
     </div>
   );
