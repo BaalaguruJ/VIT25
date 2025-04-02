@@ -15,7 +15,7 @@ export default function Navigation() {
       i18n.changeLanguage(lng);
     };
   return (
-    <Navbar expand="lg" className="navbar-dark sticky-top" style={{ backgroundColor: "#4CAF50" }}> {/* Medium green background */}
+    <Navbar expand="lg" className="navbar-dark sticky-top" style={{ backgroundColor: "#115615" }}> {/* Medium green background */}
       <Container fluid className="px-3 px-lg-5"> {/* Improved padding for different screens */}
         {/* Brand Name - Larger on desktop */}
         <Navbar.Brand 

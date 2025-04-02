@@ -70,13 +70,7 @@ function Rover() {
   }
   const [id, setId] = useState(null)
   useEffect(() => {
-    socket.connect();
-    socket.emit('roNo', param);
-  
-    const handleSession = (id) => {
-      console.log(id);
-      localStorage.setItem('sessionID', id);
-    };
+    
   
     // const interval = setInterval(() => {
     //   setRoverData(prev => ({
@@ -95,7 +89,13 @@ function Rover() {
     socket.on('connect', () => {
       setId(socket.id)
     })
-    socket.emit('roNo', param)
+    socket.connect();
+    socket.emit('roNo', param);
+  
+    const handleSession = (id) => {
+      console.log(id);
+      localStorage.setItem('sessionID', id);
+    };
     socket.on('getSession', async (id) => {
       console.log(id)
     })
