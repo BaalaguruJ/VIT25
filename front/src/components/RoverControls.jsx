@@ -28,7 +28,6 @@ function RoverControls() {
           ↑
         </button>
 
-        {/* Left Button */}
         <button 
           className={`control-btn left ${movement === 'left' ? 'active' : ''}`}
           onMouseDown={() => handleMovement('left')}
@@ -39,7 +38,6 @@ function RoverControls() {
           ←
         </button>
 
-        {/* Stop Button */}
         <button 
           className="control-btn stop"
           onClick={handleStop}
@@ -47,7 +45,6 @@ function RoverControls() {
           ●
         </button>
 
-        {/* Right Button */}
         <button 
           className={`control-btn right ${movement === 'right' ? 'active' : ''}`}
           onMouseDown={() => handleMovement('right')}
@@ -58,7 +55,6 @@ function RoverControls() {
           →
         </button>
 
-        {/* Backward Button */}
         <button 
           className={`control-btn backward ${movement === 'backward' ? 'active' : ''}`}
           onMouseDown={() => handleMovement('backward')}

@@ -1,0 +1,45 @@
+ {
+      "dashboard": {
+        "title": "Rover Monitoring Dashboard",
+        "sensorData": "Sensor Data",
+        "location": "Location",
+        "heading": "Heading"
+      },
+      "rover": {
+        "status": "Status",
+        "battery": "Battery",
+        "lastUpdate": "Last Update",
+        "controls": "Open Rover Controls",
+        "latitude": "Latitude",
+        "longitude": "Longitude",
+        "rover": "Rover"
+      },
+      "metrics": {
+        "soilMoisture": "Soil Moisture",
+        "soilPh": "Soil pH",
+        "temperature": "Temperature",
+        "sensorBattery": "Sensor Battery"
+      },
+      "buttons": {
+        "english": "English",
+        "tamil": "Tamil"
+      },
+      "directions": {
+        "north": "North",
+        "northeast": "Northeast",
+        "east": "East",
+        "southeast": "Southeast",
+        "south": "South",
+        "southwest": "Southwest",
+        "west": "West",
+        "northwest": "Northwest"
+      },
+    "appName": "Cropcare",
+    "navigation": {
+        "home": "Home",
+        "more": "More",
+        "features": "Features",
+        "ourTeam": "Our Team",
+        "contactUs": "Contact Us"
+      }
+    }
