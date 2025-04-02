@@ -204,7 +204,7 @@ speakText(ttsMessage, selectedLang);
         <div className="critical-alert">
           <div className="alert-content">
             <h3>⚠️ {t('crit')}!</h3>
-            {alerts.map((alert, index) => (
+            {alerts.critical.map((alert, index) => (
               <p key={index}>{alert}</p>
             ))}
           </div>
@@ -288,7 +288,8 @@ speakText(ttsMessage, selectedLang);
                 <p>{t('rover.longitude')}: {loc.y}</p><br />
                 <p>{t('dashboard.heading')}: {roverData.location.heading}</p>
               </div>
-              <div className="map-placeholder h-[500px] mt-[350px] mb-8">
+              <div className="">
+                <FarmMap coordinates={[loc.x, loc.y]}/>
               </div>
             </div>
           </div>
