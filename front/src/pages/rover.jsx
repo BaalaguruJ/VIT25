@@ -68,27 +68,8 @@ function Rover() {
         return 'neutral';
     }
   }
-  const [id, setId] = useState(null)
+  const[id, setId] = useState(null)
   useEffect(() => {
-    
-  
-    // const interval = setInterval(() => {
-    //   setRoverData(prev => ({
-    //     ...prev,
-    //     battery: Math.max(0, prev.battery - 0.5),
-    //     soilMoisture: Math.max(10, Math.min(90, prev.soilMoisture + (Math.random() * 4 - 2))),
-    //     temperature: Math.max(20, Math.min(40, prev.temperature + (Math.random() * 2 - 1))),
-    //     lastUpdate: new Date().toISOString()
-    //   }));
-    // }, 5000);
-
-    // return () => clearInterval(interval);
-
-    const socket = io('http://localhost:3000')
-
-    socket.on('connect', () => {
-      setId(socket.id)
-    })
     socket.connect();
     socket.emit('roNo', param);
   
@@ -96,38 +77,34 @@ function Rover() {
       console.log(id);
       localStorage.setItem('sessionID', id);
     };
-    socket.on('getSession', async (id) => {
-      console.log(id)
-    })
-
-    socket.on('batteryLevel', data => {
-      setBatteryLevel(data.battery_level)
-      setRoverName(data.rover_id)
-      console.log(roverName)
-    })
-
-    socket.on('sensorData', data => {
-      setSensorData(data);
-      console.log(data)
-    })
-
-    socket.on('roverPosition', data => {
-      console.log(data)
-      setLoc({
-        x: data.coordinates[0],
-        y: data.coordinates[1]
-      })
-    })
-
-
-    return () => socket.disconnect()
-  }, []);
+  
+    socket.on('getSession', handleSession);
+  
+    socket.on('batteryLevel', (data) => {
+      setBatteryLevel(data.battery_level);
+      setRoverName(data.rover_id);
+    });
+  
+    socket.on('sensorData', setSensorData);
+  
+    socket.on('roverPosition', (data) => {
+      setLoc({ x: data.coordinates[0], y: data.coordinates[1] });
+    });
+  
+    return () => {
+      socket.off('getSession', handleSession);
+      socket.off('batteryLevel');
+      socket.off('sensorData');
+      socket.off('roverPosition');
+      socket.disconnect();
+    };
+  }, [param]);
+  
 
   return (
 
     <>
       <NavBar />
-      <LanguageSwitcher />
       <div className="dashboard-container">
         
         <div className="rover-display-fixed">
@@ -149,7 +126,7 @@ function Rover() {
             <p>{t('rover.lastUpdate')}: {new Date(sensorData && sensorData.timestamp).toLocaleTimeString()}</p>
             <button
               className="rover-controls-button"
-              onClick={() => navigate('/rover-controls')}
+              onClick={() => navigate(`/rover-controls/${param}`)}
             >
               {t('rover.controls')}
             </button>
