@@ -1,0 +1,45 @@
+ {
+    "dashboard": {
+      "title": "ரோவர் கண்காணிப்பு தளம்",
+      "sensorData": "சென்சார் தரவு",
+      "location": "இடம்",
+      "heading": "திசை"
+    },
+    "rover": {
+      "status": "நிலை",
+      "battery": "பேட்டரி",
+      "lastUpdate": "கடைசியாக புதுப்பிக்கப்பட்டது",
+      "controls": "ரோவர் கட்டுப்பாடுகளை திறக்க",
+      "latitude": "அட்சரேகை",
+      "longitude": "தீர்க்கரேகை",
+      "rover": "ரோவர்"
+    },
+    "metrics": {
+      "soilMoisture": "மண்ணின் ஈரப்பதம்",
+      "soilPh": "மண்ணின் pH",
+      "temperature": "வெப்பநிலை",
+      "sensorBattery": "சென்சார் பேட்டரி"
+    },
+    "buttons": {
+      "english": "ஆங்கிலம்",
+      "tamil": "தமிழ்"
+    },
+    "directions": {
+      "north": "வடக்கு",
+      "northeast": "வடகிழக்கு",
+      "east": "கிழக்கு",
+      "southeast": "தென்கிழக்கு",
+      "south": "தெற்கு",
+      "southwest": "தென்மேற்கு",
+      "west": "மேற்கு",
+      "northwest": "வடமேற்கு"
+    },
+    "appName": "பயிர்காப்பு",
+    "navigation": {
+        "home": "முகப்பு",
+        "more": "மேலும்",
+        "features": "அம்சங்கள்",
+        "ourTeam": "எங்கள் குழு",
+        "contactUs": "தொடர்பு கொள்ள"
+      }
+  }

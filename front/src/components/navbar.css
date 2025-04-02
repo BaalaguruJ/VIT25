@@ -1,6 +1,54 @@
 
 .nav-text-hover:hover {
-    color: #146c18 !important; 
+    color: #87ff8d !important; 
   }
 
+  /* Language Switcher Styles */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.lang-btn:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.lang-btn.active {
+  color: white;
+  font-weight: 600;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.lang-divider {
+  color: rgba(255, 255, 255, 0.3);
+  padding: 0 0.25rem;
+  font-size: 0.9rem;
+}
+
+/* For mobile view */
+@media (max-width: 992px) {
+  .language-switcher {
+    padding: 0.5rem 1rem;
+    margin-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 0.5rem;
+  }
   
+  .lang-btn {
+    padding: 0.5rem 1rem;
+  }
+}

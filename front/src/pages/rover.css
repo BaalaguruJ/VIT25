@@ -299,65 +299,104 @@ h3 {
   animation: highlight 1.5s ease-out;
 }
 
-.rover-controls-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
+  .rover-controls-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  .rover-controls-button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .rover-controls-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+  }
 
-.rover-controls-button:hover {
-  background-color: #45a049;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.rover-controls-button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 3px rgba(0,0,0,0.2);
-}
-
-/* Metric Card Status Colors */
+  /* Metric Card Status Colors */
 .metric-card {
-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .metric-card.good {
-background-color: rgba(46, 204, 113, 0.1);
-border-left: 4px solid #2ecc71;
+  background-color: rgba(46, 204, 113, 0.1);
+  border-left: 4px solid #2ecc71;
 }
 
 .metric-card.warning {
-background-color: rgba(241, 196, 15, 0.1);
-border-left: 4px solid #f1c40f;
-animation: pulseWarning 2s infinite;
+  background-color: rgba(241, 196, 15, 0.1);
+  border-left: 4px solid #f1c40f;
+  animation: pulseWarning 2s infinite;
 }
 
 .metric-card.critical {
-background-color: rgba(231, 76, 60, 0.1);
-border-left: 4px solid #e74c3c;
-animation: pulseCritical 1s infinite;
+  background-color: rgba(231, 76, 60, 0.1);
+  border-left: 4px solid #e74c3c;
+  animation: pulseCritical 1s infinite;
 }
 
 .metric-card.neutral {
-background-color: rgba(149, 165, 166, 0.1);
-border-left: 4px solid #95a5a6;
+  background-color: rgba(149, 165, 166, 0.1);
+  border-left: 4px solid #95a5a6;
 }
 
 @keyframes pulseWarning {
-0% { opacity: 1; }
-50% { opacity: 0.7; }
-100% { opacity: 1; }
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
 }
 
 @keyframes pulseCritical {
-0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); }
-70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
-100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
 }
+
+/* Language Switcher Styles */
+.language-switcher-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+}
+
+.language-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.language-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.language-btn.active {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+/* Existing Rover Styles */
+.rover-container {
+  position: relative;
+  height: 100vh;
+}
+
