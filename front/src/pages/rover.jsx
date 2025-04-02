@@ -5,6 +5,7 @@ import DummyMap from '../components/DummyMap';
 import {io} from 'socket.io-client'
 import {useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import socket from '../socket';
+import FarmMap from './farmmap';
 function Rover() {
     const [roverData, setRoverData] = useState({
       status: 'active',
@@ -178,9 +179,9 @@ const navigate = useNavigate();
                     <p>Longitude: {loc.y}</p><br />
                     <p>Heading: {roverData.location.heading}</p>
                   </div>
-                  <div className="map-placeholder h-[500px] mt-[350px] mb-8">
-                    {/* <DummyMap/> */}
-                  </div>
+                    <div className='mx-auto'>
+                      <FarmMap coordinates={[loc.x, loc.y]}/>
+                    </div>
                 </div>
               </div>
               </div>
