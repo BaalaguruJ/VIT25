@@ -21,7 +21,7 @@ function RoverControls() {
   }, []);
 
   const handleMovement = (direction) => {
-    console.log(`Moving ${direction}`);
+  
     socket.emit('operate', direction, param, sessionId);
   };
 
