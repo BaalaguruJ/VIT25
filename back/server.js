@@ -7,7 +7,7 @@ const server = http.createServer(app)
 const axios = require('axios')
 const io = socketIo(server, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: '*',
     methods: ['GET', 'POST'],
   },
 })
@@ -24,11 +24,15 @@ io.on('connection', socket => {
     getSessionId(socket, roId)
   })
 
-  socket.on('operate',async (dir, id, sessionID) => {
-    const direction = ['forward', 'backward', 'left', 'right']
-    const op = await axios.post(`https://fleetbots-production.up.railway.app/api/rover/Rover-${id}/move?session_id=${sessionID}&direction=${direction[dir-1]}`)
-    socket.emit('direction', op.data.message)
-  })
+  socket.on('operate', async (dir, id, sessionID) => {
+    const direction = ['stop', 'forward', 'backward', 'left', 'right']; // Index 0 = stop
+    const op = await axios.post(
+      `https://fleetbots-production.up.railway.app/api/rover/Rover-${id}/move?session_id=${sessionID}&direction=${direction[dir]}`
+    );
+    socket.emit('direction', op.data.message);
+    socket.emit('dir', dir);
+  });
+  
 })
 
 server.listen(3000, () => {
